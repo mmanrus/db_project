@@ -1,9 +1,9 @@
-<?php
+ <?php
 
     $db_server = "localhost";
     $db_user = "root";
     $db_password = "";
-    $db_name = "rusiana_db";
+    $db_name = "project_db";
     $conn = null;
 
     try{
