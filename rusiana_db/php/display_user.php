@@ -21,7 +21,8 @@
                     <th>Email</th>
                     <th>Message</th>
                     <th>Created at</th>
-                </tr>";
+                </tr>
+            ";
 
 
         while($row = $result -> fetch_assoc()){
