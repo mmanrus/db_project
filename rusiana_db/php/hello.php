@@ -13,6 +13,7 @@
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false){
             echo'<script>alert("Invalid Email.")</script>';
+            exit;
         }
 
         $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');

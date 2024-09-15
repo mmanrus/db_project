@@ -3,7 +3,7 @@
     $error_message = '';
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_STRIPPED);
+        $name = $_POST['name'];
         $email = $_POST['email'];
         $message = $_POST['message'];
 
