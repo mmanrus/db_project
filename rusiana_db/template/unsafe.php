@@ -1,3 +1,32 @@
+<?php
+    include('../php/db_conn.php');
+    $error_message = '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    {
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_STRIPPED);
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        if (!$conn) 
+        {
+            die("Connection failed: " . mysqli_connect_error());
+        } 
+        $sql = "INSERT INTO users(name, email, message) VALUES ('$name', '$email', '$message')";
+        if($conn->query( $sql) === TRUE){
+          echo "The data successfully inserted";
+        }
+        else 
+        {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        // Close connection
+        $conn->close();
+    }
+    else {
+     echo'Invalid requuest';
+    }
+?>
 
 
 <!DOCTYPE html>
@@ -12,10 +41,10 @@
 <body>
     <header class="nav">
         <div>
-            Hello World
+            Unsafe
         </div>
     </header>
-    <form action="../php/hello.php" method="post" class="px-5 mx-5 form_container">
+    <form action="unsafe.php" method="post" class="px-5 mx-5 form_container">
         <div class="input-container">
             <label for="name" >Name:</label class="form-label">
             <input type="text" name="name" id="email" class="form-control" >
@@ -36,6 +65,5 @@
     <div>
         <a href="../php/display_user.php">display_user</a>
     </div>
-        <a href="unsafe.php">unsafe</a>
 </body>
 </html>
