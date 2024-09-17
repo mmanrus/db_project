@@ -7,13 +7,13 @@
 
         $name = trim($_POST['name']);
         $name = strip_tags($name);
-        $name = preg_replace("/[^a-zA-Z\s'-]/", "", $name);
+       
         
         $email = trim($_POST["email"]);
         $email = strip_tags($email);
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-        $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+        $message = $_POST['message'];
 
         # if name is empty then handle gracefully :D
         $error_message = '';
@@ -24,6 +24,16 @@
             <a href="../template/index.php">Go back?</a>
             ';
             # fill the error_message
+            $error_message = 'failed';
+        }
+
+        if (!preg_match("/^[a-zA-Z0-9._\s]*$/", $name)){
+            echo'
+            <script>
+            alert("Invalid Input: only letters, numbers, dots, underscor are allowed");
+            </script>
+            <a href="../template/index.php">Go back?</a>
+            ';
             $error_message = 'failed';
         }
         # if email is empty then handle gracefully :D
