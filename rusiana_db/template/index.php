@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +16,27 @@
     <header class="nav">
         <div>
             Hello World
+        </div>
+        <div>
+            <a href="#"><?php echo isset($_SESSION["name"]) ? $_SESSION["name"] : ""; ?></a>
+
+            <?php
+
+                if(!isset($_SESSION["loggedin"])){
+                    echo'
+                    <a href="login_view.php">Login</a>
+                    <a href="register_view.php">Register</a>
+                    ';
+                }
+            
+                if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                    
+                    echo'
+                    <a href="../php/logout.php"  class="btn">Logout</a>
+                    ';
+                }
+                
+            ?>
         </div>
     </header>
     <form action="../php/hello.php" method="post" class="px-5 mx-5 form_container">

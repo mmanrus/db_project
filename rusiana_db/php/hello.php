@@ -7,7 +7,7 @@
 
         $name = trim($_POST['name']);
         $name = strip_tags($name);
-       
+        
         
         $email = trim($_POST["email"]);
         $email = strip_tags($email);
@@ -27,7 +27,7 @@
             $error_message = 'failed';
         }
 
-        if (!preg_match("/^[a-zA-Z0-9._\s]*$/", $name)){
+        if (!preg_match("/^[a-zA-Z0-9._]*$/", $name)){
             echo'
             <script>
             alert("Invalid Input: only letters, numbers, dots, underscor are allowed");
