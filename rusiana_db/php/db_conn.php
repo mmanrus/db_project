@@ -3,7 +3,7 @@
     $db_server = "localhost";
     $db_user = "root";
     $db_password = "";
-    $db_name = "project_webapp";
+    $db_name = "project";
     $conn = null;
 
     try{

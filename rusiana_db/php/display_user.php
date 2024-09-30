@@ -3,7 +3,7 @@
 
     header('Content-Type: text/html; charset=utf-8');
 
-    $sql = "SELECT user_id, name, email, message, created_at FROM users";
+    $sql = "SELECT id, name, email, message, created_at FROM users";
     $result = mysqli_query($conn, $sql);
     if (!$result){
         die("Query failed: ". $conn->error);
@@ -27,7 +27,7 @@
 
         while($row = $result -> fetch_assoc()){
             echo "<tr>";
-                echo "<td>" . $row["user_id"] . "</td>";
+                echo "<td>" . $row["id"] . "</td>";
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["email"] . "</td>";
                 echo "<td>" . $row["message"] . "</td>";

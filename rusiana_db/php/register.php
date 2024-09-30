@@ -62,9 +62,9 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_close($stmt);
 
-                   
-                    header("Location: ../template/index.php");
                     echo "<script>alert('{$name} registered successfully.');</script>";
+                    header("Location: ../template/index.php");
+                    
                }
                else {
                     echo "Error: ". $sql. "<br>" . mysqli_error($conn);

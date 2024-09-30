@@ -1,44 +1,14 @@
 <?php
     session_start();
+    $title = 'Home';
+    include('head.php');
+   
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style.css">
-    <title>Document</title>
-</head>
 
 <body>
-    <header class="nav">
-        <div>
-            Hello World
-        </div>
-        <div>
-            <a href="#"><?php echo isset($_SESSION["name"]) ? $_SESSION["name"] : ""; ?></a>
-
-            <?php
-
-                if(!isset($_SESSION["loggedin"])){
-                    echo'
-                    <a href="login_view.php">Login</a>
-                    <a href="register_view.php">Register</a>
-                    ';
-                }
-            
-                if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-                    
-                    echo'
-                    <a href="../php/logout.php"  class="btn">Logout</a>
-                    ';
-                }
-                
-            ?>
-        </div>
-    </header>
+    <?php 
+        include('nav.php');
+    ?>
     <form action="../php/hello.php" method="post" class="px-5 mx-5 form_container">
         <div class="input-container">
             <label for="name">Name:</label class="form-label">
@@ -60,7 +30,6 @@
     <div>
         <a href="../php/display_user.php">display_user</a>
     </div>
-        <a href="unsafe.php">unsafe</a>
 </body>
 
 </html>

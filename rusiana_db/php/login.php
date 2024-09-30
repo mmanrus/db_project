@@ -12,7 +12,8 @@
           $password = $_POST["password"];
 
           # check if empty
-          if (empty($email)){
+          if (empty($email))
+          {
                $err_email = 'Empty email field';
           }
           elseif (filter_var($email, FILTER_VALIDATE_EMAIL) == false)
@@ -36,7 +37,7 @@
                $sql = 'SELECT id, name, email, password FROM users WHERE email = ?';
 
                if ($stmt = mysqli_prepare($conn, $sql)) {
-                    mysqli_stmt_bind_param($stmt, 's', $email, );
+                    mysqli_stmt_bind_param($stmt, 's', $email);
 
                     if (mysqli_stmt_execute($stmt)){
                          mysqli_stmt_store_result($stmt);
@@ -50,7 +51,6 @@
                                         if(password_verify($password, $hashed_password)){
                                              // Password is correct, start a new session
                                              session_start();
-                                             
                                              // Store data in session variables
                                              $_SESSION["loggedin"] = true;
                                              $_SESSION["id"] = $id;
