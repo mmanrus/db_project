@@ -8,9 +8,6 @@
     if (!$result){
         die("Query failed: ". $conn->error);
     }
-    echo "<pre>";
-        echo print_r($result);
-    echo "</pre>";
 
     if ($result->num_rows > 0){
         echo

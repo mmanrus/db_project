@@ -10,9 +10,6 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="../php/display_user.php" class="nav-link">Display User</a>
                     </li>
                     
