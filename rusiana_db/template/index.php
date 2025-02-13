@@ -9,6 +9,10 @@
     <?php 
         include('nav.php');
     ?>
+    <?php if (!empty($_SESSION['success_msg'])) { ?>
+        <div class="alert alert-success text-center"><?= $_SESSION['success_msg']; ?></div>
+    <?php unset($_SESSION['success_msg']); ?>
+    <?php } ?>
     <form action="../php/hello.php" method="post" class="px-5 mx-5 form_container">
         <div class="input-container">
             <label for="name">Name:</label class="form-label">

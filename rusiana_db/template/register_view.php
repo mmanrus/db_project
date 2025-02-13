@@ -40,10 +40,7 @@ include('head.php');
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
     
-    <?php if (!empty($_SESSION['success_msg'])) { ?>
-        <div class="alert alert-success"><?= $_SESSION['success_msg']; ?></div>
-        <?php unset($_SESSION['success_msg']); ?>
-    <?php } ?>
+
 </body>
 </html>
 

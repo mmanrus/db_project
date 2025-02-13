@@ -52,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
             $_SESSION['success_msg'] = "{$name} registered successfully.";
             header("Location: ../template/index.php"); // Redirect to login or dashboard
+            
             exit;
         } else {
             $_SESSION['err_general'] = "Error: ". mysqli_error($conn);
